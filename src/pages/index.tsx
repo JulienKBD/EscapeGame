@@ -22,7 +22,7 @@ export default function Home() {
           choix compte.
         </p>
 
-        <Link href="/quizz" className="text-slate-900 hover:underline">
+        <Link href="/quizz-1" className="text-slate-900 hover:underline">
           <Button
             size="lg"
             className="bg-cyan-600 hover:bg-cyan-500 text-white shadow-lg shadow-cyan-900/30 cursor-pointer"
