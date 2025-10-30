@@ -17,9 +17,8 @@ export default function Home() {
         </h2>
 
         <p className="text-base sm:text-lg text-white/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
-          Un Escape Game pour sensibiliser à la consommation responsable de l’eau. Résolvez des énigmes,
-          gérez des ressources limitées et restaurez l’équilibre d’une colonie en pénurie: chaque
-          choix compte.
+          Résolvez des énigmes, gérez des ressources limitées et restaurez l’équilibre d’une colonie en pénurie:<br />
+          chaque choix compte.
         </p>
 
         <Link href="/quizz-1" className="text-slate-900 hover:underline">

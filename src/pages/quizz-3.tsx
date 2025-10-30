@@ -210,7 +210,7 @@ export default function Quizz3Page() {
             </div>
           ) : (
             <div className="flex items-center gap-3">
-              <Link href="/fin">
+              <Link href="/end">
                 <Button className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold">
                   Terminer la mission 🌊
                 </Button>
