@@ -17,49 +17,52 @@ type Question = {
 const QUESTIONS: Question[] = [
   {
     id: 1,
-    title: "💧 Question 1",
+    title: "💦 Question 1",
     text:
-      "Une fuite goutte à goutte a été repérée à la cafétéria. Que faites-vous ?",
+      "À la fontaine à eau, vous remarquez des bouteilles plastiques partout. Quelle initiative lancez-vous ?",
     options: [
-      { id: "A", text: "Rien, c’est insignifiant." },
-      { id: "B", text: "Vous prévenez la maintenance." },
-      { id: "C", text: "Vous installez un seau pour récupérer l’eau." },
-    ],
-    correct: "B",
-    explanation:
-      "Une fuite minuscule peut gaspiller 120 L/jour : l’équivalent d’un plein de baignoire !",
-  },
-  {
-    id: 2,
-    title: "💧 Question 2",
-    text:
-      "Un collègue laisse couler le robinet pendant qu’il se lave les mains. Quelle est votre réaction d’agent H₂O ?",
-    options: [
-      { id: "A", text: "Vous fermez discrètement le robinet." },
-      { id: "B", text: "Vous lui dites “C’est la planète, pas ta fontaine perso !”" },
-      { id: "C", text: "Vous laissez faire." },
+      { id: "A", text: "Imposer la gourde d’entreprise." },
+      { id: "B", text: "Mettre une affichette “Hydrate-toi mieux”." },
+      { id: "C", text: "Couper la fontaine." },
     ],
     correct: "A",
     explanation:
-      "Un geste calme, efficace et contagieux. Les changements durables commencent souvent par l’exemple.",
+      "Une gourde = 1 000 bouteilles en moins. Simple, visible, efficace.",
   },
   {
-    id: 3,
-    title: "💧 Question 3",
+    id: 2,
+    title: "💦 Question 2",
     text:
-      "À la machine à café, 500 gobelets sont utilisés chaque semaine. Que proposez-vous à l’équipe ?",
+      "L’équipe entretien veut laver les vitres chaque jour. Vous proposez :",
     options: [
-      { id: "A", text: "Interdire le café." },
-      { id: "B", text: "Mettre des mugs nominatifs." },
-      { id: "C", text: "Passer aux gobelets en carton recyclé." },
+      { id: "A", text: "De garder le rythme." },
+      { id: "B", text: "D’espacer les lavages." },
+      { id: "C", text: "De remplacer l’eau par du détergent sec." },
     ],
     correct: "B",
     explanation:
-      "Un mug par personne = 26 000 gobelets évités par an dans une entreprise de 100 salariés.",
+      "L’eau la plus propre est celle qu’on ne consomme pas inutilement.",
+  },
+  {
+    id: 3,
+    title: "💦 Question 3",
+    text:
+      "Vous découvrez une salle inutilisée avec la lumière et la clim allumées.",
+    options: [
+      { id: "A", text: "Vous passez sans rien dire." },
+      { id: "B", text: "Vous éteignez." },
+      {
+        id: "C",
+        text: "Vous laissez un QR code “Éteins-moi si tu m’aimes 💡💧”.",
+      },
+    ],
+    correct: "C",
+    explanation:
+      "Le nudge humoristique, c’est la meilleure arme RSE : influence douce, impact fort.",
   },
 ];
 
-export default function Quizz1Page() {
+export default function Quizz3Page() {
   const [current, setCurrent] = useState(0);
   const [selected, setSelected] = useState<Option["id"] | null>(null);
   const [score, setScore] = useState(0);
@@ -86,7 +89,7 @@ export default function Quizz1Page() {
     <main className="relative min-h-screen grid place-items-center px-6 py-8 sm:py-12 text-white">
       {/* Background */}
       <div
-        className="fixed inset-0 -z-10 bg-[url('/mars_bg.png')] bg-cover bg-center blur-[2px] brightness-75"
+        className="fixed inset-0 -z-10 bg-[url('/oasis_bg.png')] bg-cover bg-center blur-[2px] brightness-75"
         aria-hidden
       />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
@@ -95,7 +98,7 @@ export default function Quizz1Page() {
         {/* Header */}
         <div className="mb-5 sm:mb-6 flex items-start justify-between">
           <h1 className="text-xl sm:text-2xl font-semibold">
-            💧 QUIZ 1 – “ALERTE H₂0 AU SIÈGE”
+            🌊 QUIZ 3 – “OASIS CORPORATE 3000”
           </h1>
         </div>
 
@@ -103,7 +106,7 @@ export default function Quizz1Page() {
         <div className="mb-6">
           <div className="h-2 w-full rounded-full bg-white/10">
             <div
-              className="h-full rounded-full bg-cyan-500 transition-all duration-500"
+              className="h-full rounded-full bg-sky-400 transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>
@@ -112,12 +115,12 @@ export default function Quizz1Page() {
           </div>
         </div>
 
-        {/* Lore */}
+        {/* Lore (intro) */}
         {current === 0 && (
           <p className="text-white/80 mb-6 leading-relaxed">
-            Année 3000. Votre entreprise a survécu à la grande sécheresse.
-            Mais une fuite mystérieuse menace les réserves d’eau du bâtiment.
-            Vous avez 10 minutes pour trouver comment économiser la dernière goutte.
+            Vous êtes envoyés sur le site le plus sec de la planète :{" "}
+            <strong>Oasis Corporate</strong>. Votre mission : restaurer un cycle
+            durable de consommation avant que la dernière source ne s’évapore.
           </p>
         )}
 
@@ -198,7 +201,7 @@ export default function Quizz1Page() {
                 Réessayer
               </Button>
               <Button
-                className="bg-cyan-600 hover:bg-cyan-500 text-white"
+                className="bg-sky-500 hover:bg-sky-400 text-black font-semibold"
                 onClick={handleNext}
                 disabled={!selected}
               >
@@ -207,9 +210,9 @@ export default function Quizz1Page() {
             </div>
           ) : (
             <div className="flex items-center gap-3">
-              <Link href="/quizz-2">
+              <Link href="/fin">
                 <Button className="bg-emerald-600 hover:bg-emerald-500 text-white font-semibold">
-                  Continuer la mission 💧
+                  Terminer la mission 🌊
                 </Button>
               </Link>
             </div>
@@ -218,13 +221,12 @@ export default function Quizz1Page() {
 
         {finished && (
           <div className="mt-8 p-5 text-center rounded-xl border border-white/10 bg-emerald-700/30">
-            <h3 className="text-2xl font-semibold mb-2">
-              🎯 Mission accomplie !
-            </h3>
+            <h3 className="text-2xl font-semibold mb-2">🎯 Message final</h3>
             <p className="text-white/90">
               Score final : {score}/{QUESTIONS.length} <br />
-              Vous avez réactivé le réservoir d’eau du bâtiment CRC. <br />
-              Les agents H₂O prouvent que les petits gestes font survivre les grandes organisations.
+              Vous avez rendu à <strong>Oasis Corporate</strong> son premier
+              cycle d’eau. Chaque geste, même symbolique, redonne vie à la
+              planète… et à l’entreprise. 💧
             </p>
           </div>
         )}
